@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects | Matt Romano</title>
+<meta name="description" content="Projects by Matt Romano: a pipelined MIPS CPU, C networking and systems code, embedded firmware, and a PCB business card.">
+<meta name="theme-color" content="#0E2B1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B5A3B'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23D9B466' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Jura:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="wrap site-head">
+  <a class="brand" href="index.html">Matt Romano</a>
+  <nav aria-label="Pages">
+    <a href="build.html">The card</a>
+    <a href="projects.html" aria-current="page">Projects</a>
+    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <h1>Projects</h1>
+    <p class="intro">Most of my work is low-level, written in C and Verilog, with some hardware on the side. The code for each one is on GitHub.</p>
+    <a class="btn btn-line" href="https://github.com/YOUR-USERNAME">All my repos on GitHub</a>
+  </div>
+
+  <!-- TODO: repo names below are guesses except AtomiC-IO and dirsyncd -->
+  <ul class="projects">
+    <li class="project">
+      <div>
+        <h2>PCB business card</h2>
+        <p class="meta">KiCad hardware design</p>
+      </div>
+      <div>
+        <p>The card that brought you here. It's a two-layer board where a CH32V003 drives an OLED, and an NFC tag with a copper loop antenna sends phones to this site.</p>
+        <a class="more" href="build.html">How I built it</a>
+      </div>
+    </li>
+
+    <li class="project">
+      <div>
+        <h2>Pipelined MIPS CPU</h2>
+        <p class="meta">Verilog on a Xilinx Zynq FPGA</p>
+      </div>
+      <div>
+        <p>A 5-stage pipelined MIPS processor that runs 30+ instructions. It handles data hazards with forwarding and load-use stalls, and it resolves branches in the EXE stage. It started as a class project and I kept building on it over the summer.</p>
+        <a class="more" href="https://github.com/YOUR-USERNAME/mips-cpu">Code on GitHub</a>
+      </div>
+    </li>
+
+    <li class="project">
+      <div>
+        <h2>AtomiC-IO</h2>
+        <p class="meta">C networking library</p>
+      </div>
+      <div>
+        <p>A TCP client-server library with broadcast messaging and its own dependency-free test suite. I load-tested it with 128 concurrent clients across multiple machines at flood rate, and it dropped zero messages.</p>
+        <a class="more" href="https://github.com/YOUR-USERNAME/AtomiC-IO">Code on GitHub</a>
+      </div>
+    </li>
+
+    <li class="project">
+      <div>
+        <h2>dirsyncd</h2>
+        <p class="meta">C daemon on Linux inotify</p>
+      </div>
+      <div>
+        <p>A daemon that keeps directories in sync by watching them with inotify. It keeps up with thousands of directory updates and deletions per second without missing any.</p>
+        <a class="more" href="https://github.com/YOUR-USERNAME/dirsyncd">Code on GitHub</a>
+      </div>
+    </li>
+
+    <li class="project">
+      <div>
+        <h2>Chess vs Engine</h2>
+        <p class="meta">C++ with a Win32 GUI</p>
+      </div>
+      <div>
+        <p>A chess engine you can play against, packaged with its GUI as a single Windows exe. I'm still tuning its search and evaluation.</p>
+        <a class="more" href="https://github.com/YOUR-USERNAME/chess-vs-engine">Code on GitHub</a>
+      </div>
+    </li>
+
+    <li class="project">
+      <div>
+        <h2>Motion sensor firmware</h2>
+        <p class="meta">C on a Nordic nRF52840, in progress</p>
+      </div>
+      <div>
+        <p>Firmware that reads an LSM6DSO motion sensor over SPI. I wrote the SPI peripheral setup from the nRF52840 datasheet and I'm working toward the first sensor reads.</p>
+        <a class="more" href="https://github.com/YOUR-USERNAME/nrf52840-lsm6dso">Code on GitHub</a>
+      </div>
+    </li>
+  </ul>
+</main>
+
+<footer class="wrap titleblock">
+  <dl>
+    <div class="tb-title"><dt>Title</dt><dd>Projects</dd></div>
+    <div><dt>Designer</dt><dd>Matt Romano</dd></div>
+    <div><dt>School</dt><dd>Penn State</dd></div>
+    <div><dt>Rev</dt><dd>A</dd></div>
+    <div><dt>Date</dt><dd>2026</dd></div>
+    <div><dt>Sheet</dt><dd>3 of 3</dd></div>
+    <div><dt>Source</dt><dd><a href="https://github.com/YOUR-USERNAME">GitHub</a></dd></div>
+  </dl>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How I Built the Card | Matt Romano</title>
+<meta name="description" content="How Matt Romano designed his PCB business card in KiCad, from schematic to NFC antenna to firmware.">
+<meta name="theme-color" content="#0E2B1F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B5A3B'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%23D9B466' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Jura:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="wrap site-head">
+  <a class="brand" href="index.html">Matt Romano</a>
+  <nav aria-label="Pages">
+    <a href="build.html" aria-current="page">The card</a>
+    <a href="projects.html">Projects</a>
+    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap page-head">
+    <h1>How I built the card</h1>
+    <p class="intro">Everything from the first schematic to the finished board was done in KiCad.</p>
+  </div>
+
+  <section class="section" aria-label="Build steps">
+    <div class="wrap">
+      <ol class="steps">
+        <li class="step">
+          <div>
+            <h3>Schematic</h3>
+            <p>I started in KiCad's schematic editor. A CH32V003 microcontroller runs the board, and an ST25DV04KC NFC tag handles the part your phone talks to.</p>
+            <!-- TODO: a sentence on anything you had to figure out here -->
+          </div>
+          <figure class="shot">
+            <!-- Replace with: <img src="images/schematic.png" alt="KiCad schematic of the card"> -->
+            <div class="ph">Schematic screenshot</div>
+          </figure>
+        </li>
+
+        <li class="step">
+          <div>
+            <h3>Board layout</h3>
+            <p>I put the loop antenna across the top and the coin cell at the bottom, then fit the OLED and everything else in between. The two buttons, L and R, sit in the bottom corners.</p>
+          </div>
+          <figure class="shot">
+            <img src="images/pcb-layout.png" width="1246" height="1326" alt="KiCad PCB layout of the card with the loop antenna at the top, the OLED connector in the middle, the coin cell holder below it, and buttons in the bottom corners">
+            <figcaption>The finished layout. Red is top copper and blue is bottom copper.</figcaption>
+          </figure>
+        </li>
+
+        <li class="step">
+          <div>
+            <h3>NFC antenna</h3>
+            <p>The antenna is a loop drawn straight into the copper. A 110 pF capacitor tunes it to the 13.56 MHz field a phone puts out, and the ST25DV stores the link to this site.</p>
+            <!-- TODO: check the tuning description matches what you did, and add how you picked the turn count -->
+          </div>
+        </li>
+
+        <li class="step">
+          <div>
+            <h3>Routing and vias</h3>
+            <p>It's a two-layer board, routed by hand. Vias carry signals between the top and bottom copper wherever two paths need to cross.</p>
+          </div>
+          <figure class="shot">
+            <div class="ph">3D view from KiCad</div>
+          </figure>
+        </li>
+
+        <li class="step">
+          <div>
+            <h3>Fabrication and assembly</h3>
+            <p>I exported the Gerbers and had the boards made by <span class="todo">[fab house]</span>. <span class="todo">[How the parts got soldered on]</span></p>
+          </div>
+          <figure class="shot">
+            <div class="ph">Bare boards from the fab</div>
+          </figure>
+        </li>
+
+        <li class="step">
+          <div>
+            <h3>Firmware</h3>
+            <p>The CH32V003 drives the OLED and reads the two buttons. I flash it through the three-pin programming header at the bottom of the board. <span class="todo">[Language, toolchain, what the buttons do]</span></p>
+          </div>
+          <figure class="shot">
+            <div class="ph">Card running with the OLED on</div>
+          </figure>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section raised" aria-labelledby="specs-title">
+    <div class="wrap">
+      <h2 id="specs-title">Specs</h2>
+      <dl class="specs">
+        <div><dt>Microcontroller</dt><dd>WCH CH32V003 (RISC-V)</dd></div>
+        <div><dt>NFC tag</dt><dd>ST25DV04KC</dd></div>
+        <div><dt>Antenna</dt><dd>Copper loop, 110 pF tuning cap</dd></div>
+        <div><dt>Display</dt><dd>128×64 OLED</dd></div>
+        <div><dt>Controls</dt><dd>2 buttons</dd></div>
+        <div><dt>Power</dt><dd>Coin cell <span class="todo">[type]</span></dd></div>
+        <div><dt>Programming</dt><dd>3-pin header</dd></div>
+        <div><dt>Layers</dt><dd>2</dd></div>
+        <div><dt>Board size</dt><dd><span class="todo">TBD</span></dd></div>
+        <div><dt>Design tool</dt><dd>KiCad</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="photos-title">
+    <div class="wrap">
+      <h2 id="photos-title">Photos</h2>
+      <ul class="gallery">
+        <!-- Replace each .ph div with: <img src="images/front.jpg" alt="Front of the card"> -->
+        <li><figure class="shot"><div class="ph">Photo</div><figcaption>Front</figcaption></figure></li>
+        <li><figure class="shot"><div class="ph">Photo</div><figcaption>Back</figcaption></figure></li>
+        <li><figure class="shot"><div class="ph">Photo or short video</div><figcaption>Tapping it with a phone</figcaption></figure></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap titleblock">
+  <dl>
+    <div class="tb-title"><dt>Title</dt><dd>How I built the card</dd></div>
+    <div><dt>Designer</dt><dd>Matt Romano</dd></div>
+    <div><dt>Tool</dt><dd>KiCad</dd></div>
+    <div><dt>Rev</dt><dd>A</dd></div>
+    <div><dt>Date</dt><dd>2026</dd></div>
+    <div><dt>Sheet</dt><dd>2 of 3</dd></div>
+    <div><dt>Source</dt><dd><a href="https://github.com/YOUR-USERNAME">GitHub</a></dd></div>
+  </dl>
+</footer>
+
+</body>
+</html>

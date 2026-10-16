@@ -38,7 +38,7 @@
         <p class="meta">C networking library</p>
       </div>
       <div>
-        <p>A TCP client-server library with broadcast messaging and its own dependency-free test suite. I load-tested it with 128 concurrent clients across multiple machines at flood rate, and it dropped zero messages.</p>
+        <p>A C library for TCP messaging, including broadcasting to every connected client. Each client gets its own thread that polls for I/O, and the shared state and async logging are mostly lock-free, built on C11 atomics. Under load from 128 clients across multiple machines at flood rate, it dropped zero messages.</p>
         <a class="more" href="https://github.com/MatthewDRomano/AtomiC-IO">Code on GitHub</a>
       </div>
     </li>

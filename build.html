@@ -19,8 +19,8 @@
   <nav aria-label="Pages">
     <a href="build.html" aria-current="page">The card</a>
     <a href="projects.html">Projects</a>
-    <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
-    <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+    <a href="Matt_Romano_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    <a href="https://github.com/MatthewDRomano">GitHub</a>
   </nav>
 </header>
 
@@ -36,12 +36,12 @@
         <li class="step">
           <div>
             <h3>Schematic</h3>
-            <p>I started in KiCad's schematic editor. A CH32V003 microcontroller runs the board, and an ST25DV04KC NFC tag handles the part your phone talks to.</p>
-            <!-- TODO: a sentence on anything you had to figure out here -->
+            <p>I started in KiCad's schematic editor. A CH32V003 microcontroller runs the board, and one I2C bus connects it to both the OLED and the ST25DV04KC NFC tag.</p>
+            <p>The screen's power runs through a P-channel MOSFET, so the microcontroller can switch it off completely.</p>
           </div>
           <figure class="shot">
-            <!-- Replace with: <img src="images/schematic.png" alt="KiCad schematic of the card"> -->
-            <div class="ph">Schematic screenshot</div>
+            <a href="images/schematic.png"><img src="images/schematic.png" width="1802" height="1232" alt="KiCad schematic of the card showing the NFC tag and loop antenna, the CH32V003 microcontroller, the OLED with its power switch, the coin cell and the two buttons"></a>
+            <figcaption>The full schematic. Tap it to open full size.</figcaption>
           </figure>
         </li>
 
@@ -51,7 +51,7 @@
             <p>I put the loop antenna across the top and the coin cell at the bottom, then fit the OLED and everything else in between. The two buttons, L and R, sit in the bottom corners.</p>
           </div>
           <figure class="shot">
-            <img src="images/pcb-layout.png" width="1246" height="1326" alt="KiCad PCB layout of the card with the loop antenna at the top, the OLED connector in the middle, the coin cell holder below it, and buttons in the bottom corners">
+            <a href="images/pcb-layout.png"><img src="images/pcb-layout.png" width="1246" height="1326" alt="KiCad PCB layout of the card with the loop antenna at the top, the OLED connector in the middle, the coin cell holder below it, and buttons in the bottom corners"></a>
             <figcaption>The finished layout. Red is top copper and blue is bottom copper.</figcaption>
           </figure>
         </li>
@@ -87,7 +87,7 @@
         <li class="step">
           <div>
             <h3>Firmware</h3>
-            <p>The CH32V003 drives the OLED and reads the two buttons. I flash it through the three-pin programming header at the bottom of the board. <span class="todo">[Language, toolchain, what the buttons do]</span></p>
+            <p>The CH32V003 drives the OLED and reads the two buttons. I flash it through the three-pin header at the bottom of the board, which carries power and the chip's one-wire debug line. <span class="todo">[Language, toolchain, what the buttons do]</span></p>
           </div>
           <figure class="shot">
             <div class="ph">Card running with the OLED on</div>
@@ -101,13 +101,15 @@
     <div class="wrap">
       <h2 id="specs-title">Specs</h2>
       <dl class="specs">
-        <div><dt>Microcontroller</dt><dd>WCH CH32V003 (RISC-V)</dd></div>
+        <div><dt>Microcontroller</dt><dd>WCH CH32V003, 8-pin (RISC-V)</dd></div>
         <div><dt>NFC tag</dt><dd>ST25DV04KC</dd></div>
         <div><dt>Antenna</dt><dd>Copper loop, 110 pF tuning cap</dd></div>
         <div><dt>Display</dt><dd>128×64 OLED</dd></div>
+        <div><dt>Bus</dt><dd>I2C (MCU, OLED, NFC tag)</dd></div>
+        <div><dt>Screen power</dt><dd>P-channel MOSFET switch</dd></div>
         <div><dt>Controls</dt><dd>2 buttons</dd></div>
         <div><dt>Power</dt><dd>Coin cell <span class="todo">[type]</span></dd></div>
-        <div><dt>Programming</dt><dd>3-pin header</dd></div>
+        <div><dt>Programming</dt><dd>3-pin header, SWIO</dd></div>
         <div><dt>Layers</dt><dd>2</dd></div>
         <div><dt>Board size</dt><dd><span class="todo">TBD</span></dd></div>
         <div><dt>Design tool</dt><dd>KiCad</dd></div>
@@ -136,7 +138,7 @@
     <div><dt>Rev</dt><dd>A</dd></div>
     <div><dt>Date</dt><dd>2026</dd></div>
     <div><dt>Sheet</dt><dd>2 of 3</dd></div>
-    <div><dt>Source</dt><dd><a href="https://github.com/YOUR-USERNAME">GitHub</a></dd></div>
+    <div><dt>Source</dt><dd><a href="https://github.com/MatthewDRomano">GitHub</a></dd></div>
   </dl>
 </footer>
 
